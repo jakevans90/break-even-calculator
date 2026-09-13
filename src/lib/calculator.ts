@@ -14,9 +14,11 @@ export type BreakEvenResult = {
   breakEvenUnits: number | null;
   operationalBreakEvenUnits: number | null;
   breakEvenRevenueCents: number | null;
+  operationalBreakEvenRevenueCents: number | null;
   targetUnits: number | null;
   operationalTargetUnits: number | null;
   targetRevenueCents: number | null;
+  operationalTargetRevenueCents: number | null;
 };
 
 export const EMPTY_FORM: CalculatorForm = { mode: "job", fixedOverhead: "", variableCost: "", sellingPrice: "", targetProfit: "" };
@@ -38,19 +40,23 @@ export function calculateBreakEven(form: CalculatorForm): BreakEvenResult {
   const contributionCents = price - variable;
   const status = contributionCents > 0 ? "viable" : contributionCents === 0 ? "zero" : "negative";
   const contributionMarginPercent = price === 0 ? null : contributionCents / price * 100;
-  if (status !== "viable") return { contributionCents, contributionMarginPercent, status, breakEvenUnits: null, operationalBreakEvenUnits: null, breakEvenRevenueCents: null, targetUnits: null, operationalTargetUnits: null, targetRevenueCents: null };
+  if (status !== "viable") return { contributionCents, contributionMarginPercent, status, breakEvenUnits: null, operationalBreakEvenUnits: null, breakEvenRevenueCents: null, operationalBreakEvenRevenueCents: null, targetUnits: null, operationalTargetUnits: null, targetRevenueCents: null, operationalTargetRevenueCents: null };
   const breakEvenUnits = fixed / contributionCents;
   const targetUnits = (fixed + target) / contributionCents;
+  const operationalBreakEvenUnits = form.mode === "job" ? Math.ceil(breakEvenUnits) : breakEvenUnits;
+  const operationalTargetUnits = form.mode === "job" ? Math.ceil(targetUnits) : targetUnits;
   return {
     contributionCents,
     contributionMarginPercent,
     status,
     breakEvenUnits,
-    operationalBreakEvenUnits: form.mode === "job" ? Math.ceil(breakEvenUnits) : breakEvenUnits,
+    operationalBreakEvenUnits,
     breakEvenRevenueCents: Math.round(breakEvenUnits * price),
+    operationalBreakEvenRevenueCents: Math.round(operationalBreakEvenUnits * price),
     targetUnits,
-    operationalTargetUnits: form.mode === "job" ? Math.ceil(targetUnits) : targetUnits,
+    operationalTargetUnits,
     targetRevenueCents: Math.round(targetUnits * price),
+    operationalTargetRevenueCents: Math.round(operationalTargetUnits * price),
   };
 }
 
