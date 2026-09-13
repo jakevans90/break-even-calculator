@@ -22,3 +22,6 @@ npm run build
 ```
 
 All business and pricing inputs stay in browser local storage. There is no API, database, authentication, analytics, or cloud sync.
+# JakeGenerates launch standard
+
+New tools use the canonical full-width header and canonical footer. Document generators include local browser-saved branding and an optional logo where appropriate. Tool subdomains remain `noindex, nofollow`, serve `Disallow: /`, and do not publish a sitemap.

@@ -5,3 +5,4 @@ html { background: #f1f5f9; }
 body { margin: 0; color: #0f172a; font-family: Arial, Helvetica, sans-serif; }
 button, input { font: inherit; }
 ::selection { background: #bfdbfe; }
+main > div > header > a[href="https://jakegenerates.com/"]:first-child { display: none; }
