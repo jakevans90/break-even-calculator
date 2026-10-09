@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 const links = [
   { name: "Labor Rate Calculator", description: "Check whether your hourly rate covers the business.", url: "https://labor-rate.jakegenerates.com/" },
   { name: "Job Profit Calculator", description: "Compare the target with actual job performance.", url: "https://job-profit.jakegenerates.com/" },
-  { name: "Browse tools by profession", description: "Find the pricing and document workflow for your trade.", url: "https://jakegenerates.com/#professions" },
+  { name: "Browse tools by profession", description: "Find the pricing and document workflow for your trade.", url: "https://www.jakegenerates.com/#professions" },
 ] as const;
 
 export function RelatedTools() {

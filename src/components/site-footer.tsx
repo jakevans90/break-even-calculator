@@ -12,7 +12,7 @@ export function SiteFooter() {
           <Link href="/support" className={linkClass}>Support</Link>
         </nav>
         <div className="sm:text-right">
-          <a href="https://jakegenerates.com/" className="inline-flex min-h-11 items-center rounded-lg font-medium text-blue-700 outline-none hover:underline focus-visible:ring-4 focus-visible:ring-blue-100">Explore more tools at JakeGenerates →</a>
+          <a href="https://www.jakegenerates.com/" className="inline-flex min-h-11 items-center rounded-lg font-medium text-blue-700 outline-none hover:underline focus-visible:ring-4 focus-visible:ring-blue-100">Explore more tools at JakeGenerates →</a>
           <p>© {new Date().getFullYear()} JakeGenerates. Built for practical field work.</p>
         </div>
       </div>
